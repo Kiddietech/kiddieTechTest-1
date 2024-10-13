@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max-Width Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --body-background: #fff;
+            --container-background: #8e0505;
+            --ring-color-text: #fefefe;
+            --button-background: #f95e5e;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            min-width: 240px;
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            background: var(--body-background);
+            color: var(--ring-color-text);
+            overflow-x: hidden;
+        }
+
+        .header {
+            width: 100%;
+            min-width: 240px;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto; 
+            background-color: var(--container-background);
+            padding: 20px 80px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container ul li  {
+            list-style-type: none;
+            margin-left: 10px;
+            position: relative;
+        }        
+
+        .container ul li a {
+            text-decoration: none;
+            color: var(--ring-color-text);
+            padding: 5px 10px;
+            font-size: 1rem;
+            transition: all 0.5s ease;
+        }
+
+        .container ul li a::after {
+            content: "";
+            position: absolute;
+            left: 10px;
+            bottom: -5px;
+            width: 50%;
+            height: 2px;
+            background-color: var(--ring-color-text);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.5s ease;
+        }
+
+        .container ul li a:hover {
+            opacity: 0.85;
+        }
+
+        .container ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .px-container {
+            margin: auto;
+            max-width: 1440px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .hamburger {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 12px 30px;
+            }
+
+            .container ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                background-color: var(--container-background);
+                padding: 40px 0 0 0;
+                row-gap: 10px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .decorated {
+            color: #8e0505;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container px-container">
+            <a href="#Amadi.dev">
+                <img src="Image/logo-1.png" width="60px">
+            </a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <a href="#"><i class="ri-close-circle-fill close"></i></a>
+            </ul>
+            <div class="menu-icon">
+                <i class="ri-menu-line hamburger"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2 px-container">
+        <p class="decorated">This is a paragraph.</p>
+
+        <button style="
+            background-color: red;
+            padding: 20px 40px;
+        ">
+            click me
+        </button>
+    </div>
+    
+</body>
+</html>

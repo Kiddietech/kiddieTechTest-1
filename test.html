@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div ul{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        div ul li {
+            list-style: none;
+            position: relative;
+        }
+
+        div ul li a {
+            text-decoration: none;
+            padding: 4px 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* div ul li a:hover::after {
+            content: "";
+            width: 50%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -10px;
+            left: 15px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.5s ease;
+        } */
+
+        div ul li a::after {
+            content: "✨";
+            width: 50%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -10px;
+            left: 15px;
+            transform: scaleX(0); /* Make sure it grows to full width on hover */
+            transform-origin: left;
+            transition: transform 0.9s ease; /* Animate the transform property */
+        }
+
+        div ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .background-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('image/banner/b3.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        .background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('image/banner/b4.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  z-index: 1;
+  transform: scaleX(1);
+        }
+
+        .background-container:hover::before {
+            opacity: 1;
+            transform: scaleX(-1);
+        }
+
+.decorated::before {
+  content: "[Start]";
+  color: green;
+  margin-right: 10px;
+}
+
+.decorated::after {
+  content: "[End]";
+  color: red;
+  margin-left: 10px;
+}
+
+button {
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+
+    <div>
+        <ul>
+            <li><a href="#">Red</a></li>
+            <li><a href="#">Bean</a></li>
+            <li><a href="#">Yam</a></li>
+            <li><a href="#">Green</a></li>
+            <li><a href="#">Brown</a></li>
+        </ul>
+    </div>
+
+    <p class="decorated">This is a paragraph.</p>
+
+    <button style="
+        background-color: red;
+        padding: 20px 40px;
+    ">
+        click me
+    </button>
+    
+</body>
+</html>
